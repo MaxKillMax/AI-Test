@@ -14,7 +14,7 @@ namespace AiTest.Units
         private const int WalkOnlyIndex = 1;
         private const int WalkAndJumpIndex = 5;
 
-        private const float EndDistance = 0.01f;
+        private const float EndDistance = 0.1f;
 
         private readonly NavMeshAgent _agent;
         private Transform _target;
@@ -46,6 +46,8 @@ namespace AiTest.Units
             IsEnabled = false;
         }
 
+        public bool CanMove() => _target != null && _agent.CalculatePath(_target.position, new());
+
         public void Move()
         {
             if (_target == null)
@@ -57,7 +59,6 @@ namespace AiTest.Units
             _agent.isStopped = false;
             IsEnabled = true;
             IsJumping = false;
-
             _agent.SetDestination(_target.position);
         }
 

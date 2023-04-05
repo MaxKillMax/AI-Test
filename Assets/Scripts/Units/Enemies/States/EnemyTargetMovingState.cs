@@ -1,7 +1,10 @@
 ﻿using System;
+using AiTest.Units.Components;
+using AiTest.Units.Enemies.Components;
+using AiTest.Units.FieldsOfView;
 using UnityEngine;
 
-namespace AiTest.Units.Enemies
+namespace AiTest.Units.Enemies.States
 {
     public class EnemyTargetMovingState : IEnemyState
     {
@@ -36,7 +39,7 @@ namespace AiTest.Units.Enemies
 
             _attackTrigger.OnTriggerEntered += CheckCollider;
             _fieldOfView.OnMissed += (u) => OnStateSwitchRequested?.Invoke(EnemyStateType.Search);
-            _animator.SetLerpSpeed(1);
+            _movement.OnMoveEnded += () => OnStateSwitchRequested?.Invoke(EnemyStateType.Idle);
             _movement.Speed = _movementSpeed;
             _movement.OnJumpStarted += StartFall;
             _movement.OnJumpEnded += EndFall;
@@ -74,6 +77,7 @@ namespace AiTest.Units.Enemies
         {
             _attackTrigger.OnTriggerEntered -= CheckCollider;
             _fieldOfView.OnMissed -= (u) => OnStateSwitchRequested?.Invoke(EnemyStateType.Search);
+            _movement.OnMoveEnded -= () => OnStateSwitchRequested?.Invoke(EnemyStateType.Idle);
             _movement.OnJumpStarted -= StartFall;
             _movement.OnJumpEnded -= EndFall;
             _movement.CanJump(false);

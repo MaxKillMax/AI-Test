@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AiTest.Units
+namespace AiTest.Units.FieldsOfView
 {
     public class FieldOfView 
     {
         public event Action<Unit> OnFounded;
         public event Action<Unit> OnMissed;
 
-        private readonly Transform _transform;
+        private const int LayerMask = 1;
 
+        private readonly Transform _transform;
         private readonly float _angle;
         private readonly UnitType _searchingUnitType;
 
@@ -93,7 +94,7 @@ namespace AiTest.Units
 
         private bool IsSearchingUnitTransform(Transform transform, out Unit unit) => transform.TryGetComponent(out unit) && unit.Type == _searchingUnitType;
 
-        private bool IsBehindAnObstacle(Transform transform) => !Physics.Raycast(_transform.position, _transform.GetDirection(transform), out RaycastHit hit) || hit.transform != transform.transform;
+        private bool IsBehindAnObstacle(Transform transform) => !Physics.Raycast(_transform.position, _transform.GetDirection(transform), out RaycastHit hit, float.MaxValue, LayerMask) || hit.transform != transform.transform;
 
         #endregion
     }

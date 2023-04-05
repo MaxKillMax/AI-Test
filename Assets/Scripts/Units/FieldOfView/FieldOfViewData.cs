@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AiTest.Units
+namespace AiTest.Units.FieldsOfView
 {
     [CreateAssetMenu(fileName = nameof(FieldOfViewData), menuName = nameof(FieldOfViewData), order = 51)]
     public class FieldOfViewData : ScriptableObject

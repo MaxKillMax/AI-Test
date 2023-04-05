@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AiTest.Units.Components;
 
-namespace AiTest.Units.Enemies
+namespace AiTest.Units.Enemies.States
 {
     public class EnemyAttackState : IEnemyState
     {

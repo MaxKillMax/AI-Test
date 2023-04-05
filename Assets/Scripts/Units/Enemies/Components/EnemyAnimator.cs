@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Assertions;
 
-namespace AiTest.Units.Enemies
+namespace AiTest.Units.Enemies.Components
 {
     public class EnemyAnimator : MonoBehaviour
     {
@@ -13,7 +12,7 @@ namespace AiTest.Units.Enemies
 
         public void SetLerpSpeed(float speed)
         {
-            Assert.IsTrue(speed >= 0 && speed <= 1);
+            Mathf.Lerp(0, 1, speed);
             _animator.SetFloat(_speedFloatKey, speed);
         }
 

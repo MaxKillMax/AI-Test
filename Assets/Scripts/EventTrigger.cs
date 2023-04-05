@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AiTest.Units
+namespace AiTest
 {
     [RequireComponent(typeof(Collider))]
     public class EventTrigger : MonoBehaviour

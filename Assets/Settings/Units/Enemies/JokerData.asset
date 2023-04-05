@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6934d737ff3f2b4d9c2f1c135b903b3, type: 3}
   m_Name: JokerData
   m_EditorClassIdentifier: 
-  _idleTime: 1
-  _patrolSpeed: 3
-  _targetMovingSpeed: 8
-  _searchSpeed: 8
-  _attackRange: 1.5
-  _searchTime: 2
+  _idleTime: 1.5
+  _patrolSpeed: 2.125
+  _targetMovingSpeed: 4.25
+  _searchSpeed: 3.75
+  _searchTime: 2.5
+  _attackRange: 1
   _fieldOfViewData: {fileID: 11400000, guid: 0e4797a5cb0699e43aec6c035036e85b, type: 2}
   _attackTargetType: 0
   _startState: 4

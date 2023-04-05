@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43af6d11c98c8754f9aa70b75102d2b0, type: 3}
   m_Name: JokerFOV
   m_EditorClassIdentifier: 
-  _angle: 120
-  _length: 25
+  _angle: 95
+  _length: 19
   _searchingUnitType: 0

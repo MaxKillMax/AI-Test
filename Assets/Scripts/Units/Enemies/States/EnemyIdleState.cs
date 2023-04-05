@@ -1,7 +1,9 @@
 ﻿using System;
+using AiTest.Units.Enemies.Components;
+using AiTest.Units.FieldsOfView;
 using UnityEngine;
 
-namespace AiTest.Units.Enemies
+namespace AiTest.Units.Enemies.States
 {
     public class EnemyIdleState : IEnemyState
     {
@@ -9,17 +11,15 @@ namespace AiTest.Units.Enemies
 
         private readonly FieldOfView _fieldOfView;
         private readonly TargetMovement _movement;
-        private readonly EnemyAnimator _animator;
 
         private readonly float _waitTime;
         private float _currentTime;
 
-        public EnemyIdleState(Action<EnemyStateType> onStateSwitchRequested, FieldOfView fieldOfView, TargetMovement movement, EnemyAnimator animator, float waitTime)
+        public EnemyIdleState(Action<EnemyStateType> onStateSwitchRequested, FieldOfView fieldOfView, TargetMovement movement, float waitTime)
         {
             OnStateSwitchRequested = onStateSwitchRequested;
             _fieldOfView = fieldOfView;
             _movement = movement;
-            _animator = animator;
             _waitTime = waitTime;
         }
 
@@ -29,7 +29,6 @@ namespace AiTest.Units.Enemies
             _fieldOfView.OnFounded += (u) => OnStateSwitchRequested?.Invoke(EnemyStateType.TargetMoving);
             Updater.AddListener(Update);
             _movement.Stop();
-            _animator.SetLerpSpeed(0);
         }
 
         private void Update()

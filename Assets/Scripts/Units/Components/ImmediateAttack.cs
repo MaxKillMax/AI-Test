@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace AiTest.Units.Enemies
+namespace AiTest.Units.Components
 {
     public class ImmediateAttack
     {

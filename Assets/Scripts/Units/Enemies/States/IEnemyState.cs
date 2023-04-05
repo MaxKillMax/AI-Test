@@ -1,4 +1,4 @@
-﻿namespace AiTest.Units.Enemies
+﻿namespace AiTest.Units.Enemies.States
 {
     public interface IEnemyState
     {
